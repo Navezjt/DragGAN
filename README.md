@@ -28,14 +28,46 @@
     </a>
     <a href='https://vcai.mpi-inf.mpg.de/projects/DragGAN/'>
       <img src='https://img.shields.io/badge/DragGAN-Page-orange?style=for-the-badge&logo=Google%20chrome&logoColor=white&labelColor=D35400' alt='Project Page'></a>
-    <a href="https://huggingface.co/spaces/radames/DragGan"><img alt="Huggingface" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-DragGAN-orange"></a>
     <a href="https://colab.research.google.com/drive/1mey-IXPwQC_qSthI5hO-LTX7QL4ivtPh?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
   </p>
 </p>
 
+## Web Demos
+
+[![Open in OpenXLab](https://cdn-static.openxlab.org.cn/app-center/openxlab_app.svg)](https://openxlab.org.cn/apps/detail/XingangPan/DragGAN)
+
+<p align="left">
+  <a href="https://huggingface.co/spaces/radames/DragGan"><img alt="Huggingface" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-DragGAN-orange"></a>
+</p>
+
 ## Requirements
 
-Please follow the requirements of [https://github.com/NVlabs/stylegan3](https://github.com/NVlabs/stylegan3).
+If you have CUDA graphic card, please follow the requirements of [NVlabs/stylegan3](https://github.com/NVlabs/stylegan3#requirements).  
+
+The usual installation steps involve the following commands, they should set up the correct CUDA version and all the python packages
+
+```
+conda env create python=3.7 -f environment.yml
+conda activate stylegan3
+```
+
+Then install the additional requirements
+
+```
+pip install -r requirements
+```
+
+Otherwise (for GPU acceleration on MacOS with Silicon Mac M1/M2, or just CPU) try the following:
+
+```sh
+cat environment.yml | \
+  grep -v -E 'nvidia|cuda' > environment-no-nvidia.yml && \
+    conda env create -f environment-no-nvidia.yml
+conda activate stylegan3
+
+# On MacOS
+export PYTORCH_ENABLE_MPS_FALLBACK=1
+```
 
 ## Download pre-trained StyleGAN2 weights
 
